@@ -1,5 +1,5 @@
 main:
-  components_repository: "https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices/tree/main/components"
+  components_repository: "https://github.com/wszenic/build-ml-pipeline-for-short-term-rental-prices.git#components"
   # All the intermediate files will be copied to this directory at the end of the run.
   # Set this to null if you are running in prod
   project_name: nyc_airbnb
@@ -11,6 +11,8 @@ etl:
   max_price: 350  # dollars
 data_check:
   kl_threshold: 0.2
+  min_price: 10
+  max_price: 350
 modeling:
   # Fraction of data to use for test (the remaining will be used for train and validation)
   test_size: 0.2
