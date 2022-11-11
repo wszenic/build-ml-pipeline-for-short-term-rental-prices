@@ -40,6 +40,10 @@ def go(args):
             logger.info("Changing data types")
             df['last_review'] = pd.to_datetime(df['last_review'])
 
+            logger.info("Eliminating wrong locations from the dataset")
+            idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+            df = df[idx].copy()
+
             logger.info("Saving cleaned data")
             df.to_csv(f"{temp_dir}/clean_sample.csv", index=False)
 
